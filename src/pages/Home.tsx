@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Home() {
   return (
     <div className="mt-32">
@@ -10,9 +12,12 @@ export default function Home() {
           mark on the leaderboard.
         </p>
 
-        <button className="mt-8 rounded py-2 px-6 bg-zinc-950 text-white hover:scale-105 transition-all">
+        <Link
+          to="/question-type-selection"
+          className="mt-8 rounded py-2 px-6 bg-zinc-950 text-white hover:scale-105 transition-all"
+        >
           Start Playing
-        </button>
+        </Link>
       </div>
     </div>
   );
