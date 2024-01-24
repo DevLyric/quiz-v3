@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import QuestionTypeSelection from "./pages/QuestionTypeSelection";
+import QuestionList from "./pages/QuestionList";
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
             path="/question-type-selection"
             element={<QuestionTypeSelection />}
           />
+          <Route path="/questions/:type" element={<QuestionList />} />
         </Routes>
       </Router>
     </div>
