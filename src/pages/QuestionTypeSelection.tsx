@@ -33,7 +33,7 @@ export default function QuestionTypeSelection() {
           </Link>
           <Link
             to="/questions/programming"
-            className="rounded-full py-3 px-8 bg-yellow-500 text-white hover:scale-105 transition-all"
+            className="rounded-full py-3 px-8 bg-purple-500 text-white hover:scale-105 transition-all"
           >
             Programming
           </Link>
