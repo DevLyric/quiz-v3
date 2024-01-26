@@ -8,8 +8,11 @@ export default function Home() {
           Welcome to the Quiz Experience
         </h1>
         <p className="text-center text-gray-600">
-          Embark on a journey of knowledge and fun! Register now to leave your
-          mark on the leaderboard.
+          Embark on a journey of knowledge and fun!{" "}
+          <Link to="/auth/signup" className="text-blue-500 font-semibold">
+            Register now
+          </Link>{" "}
+          to leave your mark on the leaderboard.
         </p>
 
         <Link
