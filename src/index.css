@@ -1,19 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: "MesloLGS NF";
-  src: url("https://raw.githubusercontent.com/romkatv/powerlevel10k-media/master/MesloLGS%20NF%20Regular.ttf");
-  font-weight: normal;
-}
-
-@font-face {
-  font-family: "MesloLGS NF";
-  src: url("https://raw.githubusercontent.com/romkatv/powerlevel10k-media/master/MesloLGS%20NF%20Bold.ttf");
-  font-weight: bold;
-}
-
 body {
-  font-family: "MesloLGS NF";
+  font-family: "Inter", sans-serif;
 }
