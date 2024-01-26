@@ -12,7 +12,7 @@ export default function QuestionTypeSelection() {
           begin!
         </p>
 
-        <div className="flex flex-col justify-center text-center md:flex-row gap-4 mt-8">
+        <div className="flex flex-col justify-center text-cener md:flex-row md:flex-wrap gap-4 mt-8">
           <Link
             to="/questions/general"
             className="rounded-full py-3 px-8 bg-blue-500 text-white hover:scale-105 transition-all"
@@ -30,6 +30,12 @@ export default function QuestionTypeSelection() {
             className="rounded-full py-3 px-8 bg-yellow-500 text-white hover:scale-105 transition-all"
           >
             Movies
+          </Link>
+          <Link
+            to="/questions/programming"
+            className="rounded-full py-3 px-8 bg-yellow-500 text-white hover:scale-105 transition-all"
+          >
+            Programming
           </Link>
         </div>
       </div>

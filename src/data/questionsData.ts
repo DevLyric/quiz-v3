@@ -268,4 +268,117 @@ export const questionsData: IQuestionData[] = [
     category: "movies",
     options: ["Leonardo DiCaprio", "Brad Pitt", "Tom Hanks", "Matt Damon"],
   },
+
+  // Programming Questions
+  {
+    id: 31,
+    question: "What does HTML stand for?",
+    correctAnswer: "Hypertext Markup Language",
+    category: "programming",
+    options: [
+      "Hyperlink and Text Markup Language",
+      "Hypertext Markup Language",
+      "High-Level Text Markup Language",
+      "Home Tool Markup Language",
+    ],
+  },
+  {
+    id: 32,
+    question:
+      "Which programming language is known as the 'mother of all languages'?",
+    correctAnswer: "C",
+    category: "programming",
+    options: ["Java", "C++", "C#", "C"],
+  },
+  {
+    id: 33,
+    question: "What is the purpose of the 'git' version control system?",
+    correctAnswer: "Managing source code versions and collaboration",
+    category: "programming",
+    options: [
+      "Running server-side JavaScript",
+      "Creating responsive web designs",
+      "Managing source code versions and collaboration",
+      "Database management",
+    ],
+  },
+  {
+    id: 34,
+    question:
+      "What is the main advantage of using a framework in software development?",
+    correctAnswer: "Faster development and code consistency",
+    category: "programming",
+    options: [
+      "Easier debugging",
+      "Faster development and code consistency",
+      "Higher security",
+      "Improved user interface",
+    ],
+  },
+  {
+    id: 35,
+    question: "What does API stand for?",
+    correctAnswer: "Application Programming Interface",
+    category: "programming",
+    options: [
+      "Advanced Programming Interface",
+      "Application Programming Interface",
+      "Automated Programming Interface",
+      "Application Process Integration",
+    ],
+  },
+  {
+    id: 36,
+    question:
+      "Which programming language is commonly used for machine learning?",
+    correctAnswer: "Python",
+    category: "programming",
+    options: ["Java", "C++", "Python", "Ruby"],
+  },
+  {
+    id: 37,
+    question:
+      "What is the purpose of the 'npm' package manager in JavaScript development?",
+    correctAnswer: "Managing and sharing JavaScript libraries",
+    category: "programming",
+    options: [
+      "Running server-side scripts",
+      "Creating animations",
+      "Managing and sharing JavaScript libraries",
+      "Database management",
+    ],
+  },
+  {
+    id: 38,
+    question: "In object-oriented programming, what is encapsulation?",
+    correctAnswer: "Enclosing the implementation details within a class",
+    category: "programming",
+    options: [
+      "Storing data in arrays",
+      "Enclosing the implementation details within a class",
+      "Creating polymorphic functions",
+      "Implementing multiple inheritance",
+    ],
+  },
+  {
+    id: 39,
+    question:
+      "What is the purpose of the 'SQL' language in database management?",
+    correctAnswer: "Querying and manipulating relational databases",
+    category: "programming",
+    options: [
+      "Creating responsive web designs",
+      "Running server-side scripts",
+      "Querying and manipulating relational databases",
+      "Creating animations",
+    ],
+  },
+  {
+    id: 40,
+    question:
+      "What is the output of the 'console.log(2 + '2')' statement in JavaScript?",
+    correctAnswer: "22",
+    category: "programming",
+    options: ["4", "22", "Error", "Undefined"],
+  },
 ];
