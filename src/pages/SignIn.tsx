@@ -1,17 +1,47 @@
 import { Link } from "react-router-dom";
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import { auth } from "../config/firebase";
+import { auth, db } from "../config/firebase";
+import { collection, doc, setDoc } from "firebase/firestore";
+
+interface Doc {
+  name: string | null;
+  score: number;
+}
 
 export default function SignIn() {
-  const handleGoogleSignIn = () => {
+  const handleGoogleSignIp = () => {
+    // Create a new instance of GoogleAuthProvider from Firebase
     const provider = new GoogleAuthProvider();
 
+    // Sign in with Google using a popup window
     signInWithPopup(auth, provider)
-      .then((result) => {
+      .then(async (result) => {
+        // Retrieve the user ID from the authentication result
+        const userId = result.user.uid;
+
+        // Check if the user ID exists
+        if (userId) {
+          // Define initial user data with name and score
+          const initialUserData: Doc = {
+            name: result.user.displayName,
+            score: 0,
+          };
+
+          // Get a reference to the 'users' collection in Firestore
+          const usersCollectionRef = collection(db, "users");
+
+          // Create a document reference for the user using their ID
+          const userDocRef = doc(usersCollectionRef, userId);
+
+          // Set the initial user data in the Firestore document
+          await setDoc(userDocRef, initialUserData);
+        }
+
+        // Redirect the user to the home page ("/") after successful sign-in
         window.location.href = "/";
-        console.log(result);
       })
       .catch((error) => {
+        // Log any errors that occur during the sign-in process
         console.log(error);
       });
   };
@@ -23,7 +53,7 @@ export default function SignIn() {
         <p className="text-gray-600">to continue to Quiz</p>
 
         <button
-          onClick={handleGoogleSignIn}
+          onClick={handleGoogleSignIp}
           className="flex items-center gap-3 rounded w-full py-3 px-6 border my-6 text-sm font-medium"
         >
           <svg

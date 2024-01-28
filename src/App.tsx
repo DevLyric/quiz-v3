@@ -5,6 +5,7 @@ import QuestionTypeSelection from "./pages/QuestionTypeSelection";
 import QuestionList from "./pages/QuestionList";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
+import LeaderBoard from "./pages/LeaderBoard";
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
           <Route path="/questions/:type" element={<QuestionList />} />
           <Route path="/signIn" element={<SignIn />} />
           <Route path="/signUp" element={<SignUp />} />
+          <Route path="/leaderboard" element={<LeaderBoard />} />
         </Routes>
       </Router>
     </div>
