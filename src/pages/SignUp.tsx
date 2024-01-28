@@ -9,6 +9,7 @@ export default function SignUp() {
     signInWithPopup(auth, provider)
       .then((result) => {
         console.log(result);
+        window.location.href = "/";
       })
       .catch((error) => {
         console.log(error);
