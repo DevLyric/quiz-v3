@@ -5,7 +5,7 @@ import QuestionTypeSelection from "./pages/QuestionTypeSelection";
 import QuestionList from "./pages/QuestionList";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
-import Leaderboard from "./pages/LeaderBoard";
+import Leaderboard from "./pages/Leaderboard";
 
 export default function App() {
   return (
