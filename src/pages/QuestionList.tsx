@@ -1,11 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import LoadingBar from "react-top-loading-bar";
 import GameOver from "../components/GameOver";
 import Game from "../components/Game";
 import { IQuestionData, questionsData } from "../data/questionsData";
+import { getAuth } from "firebase/auth";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
+import { db } from "../config/firebase";
 
 export default function QuestionList() {
+  const auth = getAuth();
+  const user = auth.currentUser;
+
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0);
   const [score, setScore] = useState<number>(0);
   const [progress, setProgress] = useState<number>(0);
@@ -29,6 +35,33 @@ export default function QuestionList() {
       setScore(score + 1);
     }
   };
+
+  const updateScore = async () => {
+    if (user) {
+      try {
+        const userDocRef = doc(db, "users", user.uid);
+        const userDocSnapshot = await getDoc(userDocRef);
+
+        if (userDocSnapshot.exists()) {
+          const currentScore = userDocSnapshot.data().score || 0;
+          const updateScore = currentScore + score;
+
+          await updateDoc(userDocRef, { score: updateScore });
+          console.log("Score updated on Firestore successfully!");
+        } else {
+          console.error("User document not found in Firestore.");
+        }
+      } catch (error) {
+        console.error("Error updating score in Firestore:", error);
+      }
+    }
+  };
+
+  useEffect(() => {
+    if (isGameOver && user) {
+      updateScore();
+    }
+  }, [isGameOver, user, score]);
 
   return (
     <div className="mt-32">
