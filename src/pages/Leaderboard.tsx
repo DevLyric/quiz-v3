@@ -41,15 +41,17 @@ export default function Leaderboard() {
             against the competition!
           </p>
         </div>
-        {users.map((user) => (
-          <div
-            className="flex items-center justify-between rounded shadow-md cursor-pointer p-3 font-medium bg-gradient-to-r from-pink-300 via-purple-300 to-indigo-400 text-white hover:scale-105 transition-all"
-            key={user.id}
-          >
-            <p>{user.name}</p>
-            <p>Points: {user.score}</p>
-          </div>
-        ))}
+        <div className="flex flex-col gap-5">
+          {users.map((user) => (
+            <div
+              className="flex items-center justify-between rounded shadow-md cursor-pointer p-3 font-medium bg-gradient-to-r from-pink-300 via-purple-300 to-indigo-400 text-white hover:scale-105 transition-all"
+              key={user.id}
+            >
+              <p>{user.name}</p>
+              <p>Points: {user.score}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
