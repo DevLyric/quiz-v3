@@ -1,28 +1,29 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { User, onAuthStateChanged, signOut } from "firebase/auth";
-import { auth } from "../config/firebase";
+import { User, onAuthStateChanged, signOut } from 'firebase/auth'
+import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+import { auth } from '../config/firebase'
+import { UserPhoto } from './user/UserPhoto'
 
 export default function Header() {
-  const [currentUser, setCurrentUser] = useState<User>({} as User);
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
-  const [showModal, setShowModal] = useState<boolean>(false);
+  const [currentUser, setCurrentUser] = useState<User>({} as User)
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false)
+  const [showModal, setShowModal] = useState<boolean>(false)
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
-        setIsLoggedIn(true);
-        setCurrentUser(user);
+        setIsLoggedIn(true)
+        setCurrentUser(user)
       } else {
-        setIsLoggedIn(false);
+        setIsLoggedIn(false)
       }
-    });
+    })
 
     return () => {
       // Desregistrar o observador ao desmontar o componente
-      unsubscribe();
-    };
-  }, []);
+      unsubscribe()
+    }
+  }, [])
 
   return (
     <header className="h-20 flex items-center border-b">
@@ -37,24 +38,19 @@ export default function Header() {
           {isLoggedIn ? (
             <div className="relative flex items-center gap-3">
               {currentUser.photoURL && (
-                <img
-                  onClick={() => setShowModal((current) => !current)}
-                  className="w-10 h-10 rounded-full cursor-pointer"
-                  src={currentUser.photoURL}
-                  alt=""
+                <UserPhoto
+                  onClick={() => setShowModal(!showModal)}
+                  url={currentUser.photoURL}
                 />
               )}
               {showModal && (
                 <div className="absolute -bottom-40 -right-2 flex flex-col items-center py-5 w-72 gap-2 rounded-xl bg-white shadow-md">
                   <div className="flex items-center gap-4">
                     {currentUser.photoURL && (
-                      <img
-                        className="w-10 h-10 rounded-full"
-                        src={currentUser.photoURL}
-                      />
+                      <UserPhoto url={currentUser.photoURL} />
                     )}
                     <div className="flex flex-col">
-                      <p className="">{currentUser.displayName}</p>
+                      <p>{currentUser.displayName}</p>
                       <p className="text-gray-400">{currentUser.email}</p>
                     </div>
                   </div>
@@ -62,7 +58,7 @@ export default function Header() {
                   <button
                     className="cursor-pointer"
                     onClick={() => {
-                      signOut(auth);
+                      signOut(auth)
                     }}
                   >
                     Sign out
@@ -78,5 +74,5 @@ export default function Header() {
         </div>
       </div>
     </header>
-  );
+  )
 }
