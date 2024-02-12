@@ -1,7 +1,6 @@
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
 import { collection, doc, setDoc } from 'firebase/firestore'
-import { Link } from 'react-router-dom'
-import { AuthButton } from '../components/AuthButton'
+import { GoogleAuthContainer } from '../components/GoogleAuthContainer'
 import { auth, db } from '../config/firebase'
 
 interface Doc {
@@ -48,20 +47,13 @@ export default function SignIn() {
   }
 
   return (
-    <div className="flex items-center justify-center mt-32 px-6">
-      <div className="p-8 rounded-xl shadow-lg w-[420px] h-64">
-        <h1 className="text-2xl font-semibold">Sign in</h1>
-        <p className="text-gray-600">to continue to Quiz</p>
-
-        <AuthButton onClick={handleGoogleSignIn} />
-
-        <p>
-          No account?{' '}
-          <Link to="/signUp" className="text-purple-500 hover:underline">
-            Sign up
-          </Link>
-        </p>
-      </div>
-    </div>
+    <GoogleAuthContainer
+      heading="Sign in"
+      paragraph="to continue to Quiz"
+      onClick={handleGoogleSignIn}
+      haveAccountText=" No account?"
+      path="/signUp"
+      linkText="Sign up"
+    />
   )
 }
